@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="A simple, beautiful notes application. Create and save notes instantly." />
+
+  <title>Notes App</title>
+
+  <!-- Google Fonts – Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ───────── Background decoration ───────── -->
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="bg-glow bg-glow--1" aria-hidden="true"></div>
+  <div class="bg-glow bg-glow--2" aria-hidden="true"></div>
+
+  <!-- ───────── Main container ───────── -->
+  <main class="container">
+
+    <!-- Header -->
+    <header class="header">
+      <div class="header__icon" aria-hidden="true">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 20h9"/>
+          <path d="M16.5 3.5a2.121 2.121 0 1 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>
+        </svg>
+      </div>
+      <h1 class="header__title">Notes App</h1>
+      <p class="header__subtitle">Capture your thoughts instantly</p>
+    </header>
+
+    <!-- ───────── Compose Area ───────── -->
+    <section class="compose" aria-label="Write a new note">
+      <div class="compose__field-wrapper">
+        <textarea
+          id="noteInput"
+          class="compose__textarea"
+          placeholder="Write your note here..."
+          maxlength="1000"
+          rows="5"
+          aria-label="Note content"
+        ></textarea>
+        <span id="charCounter" class="compose__counter">0 / 1000</span>
+      </div>
+
+      <button id="saveBtn" class="compose__save-btn" type="button">
+        <span class="compose__save-btn-text">Save Note</span>
+        <span class="compose__save-btn-loader" aria-hidden="true"></span>
+      </button>
+    </section>
+
+    <!-- ───────── Toast container ───────── -->
+    <div id="toastContainer" class="toast-container" aria-live="polite"></div>
+
+    <!-- ───────── Notes List ───────── -->
+    <section class="notes-section" aria-label="Saved notes">
+      <h2 class="notes-section__heading">Saved Notes</h2>
+      <div id="notesList" class="notes-list">
+        <!-- Notes are rendered here by JS -->
+      </div>
+      <p id="emptyState" class="notes-list__empty hidden">
+        No notes yet. Start writing above!
+      </p>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
